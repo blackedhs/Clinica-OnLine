@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-3"></div>
+        <div class="col-lg-6">
+            <h2 class="logintext text-center rounded"><span class='font-weight-bold'>Login </span></h2>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row pt-4">
+        <div class="col-3"></div>
+        <div class="col-lg-6">
+            <img src="../../../assets/imagenes/icon.png" alt="" class="mx-auto d-block">
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="" class="form form-dark form-bordered" [formGroup]='formControl'>
+                <div class="row-form">
+                    <label for="" class="label-control">Email:</label>
+                    <input type="text" class="form-control" formControlName='email'>
+                </div>
+                <div class="row-form">
+                    <label for="" class="label-control" >Password:</label>
+                    <input type="password" class="form-control" formControlName='password'>
+                </div>
+                <div class="row-form pt-4">
+                    <button type='button' class="btn btn-primary btn-block" (click)='onAceptar()'>Aceptar</button>
+                </div>
+                <div class="row-form pt-4">
+                    <h4>No tenes usuario? <a href="#" routerLink='/Registro'>Registrate</a></h4>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+    <div class="row p-5">
+        <div class="col-lg-12">
+            <span class="font-weight-bold"> Carga automatica </span>
+        </div>
+        <div class="col-lg-12">
+            <div class="btn-group">
+                <button class="btn btn-secondary" (click)='onAdmin()'>Admin</button>
+                <button class="btn btn-secondary mx-1" (click)='onPaciente()'>Paciente</button>
+                <button class="btn btn-secondary" (click)='onProfesional()'>Profesional</button>
+            </div>
+        </div>
+    </div>
