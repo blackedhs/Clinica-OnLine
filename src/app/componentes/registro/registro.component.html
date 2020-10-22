@@ -10,69 +10,119 @@
             <img src="../../../assets/imagenes/icon.png" alt="" class="mx-auto d-block">
         </div>
         <div class="col-lg-9">
-            <form action="" class="form mx-5" [formGroup]='formRegistro'>
+            <form action='' class="form mx-5" [formGroup]='formRegistro'>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Seleccione tipo de usuario</label>
                     </div>
-                    <select class="custom-select" id="inputGroupSelect01" formControlName='tipo'>
-                        <!-- <option selected>Elegir.....</option> -->
+                    <select class="custom-select" id="inputGroupSelect01" formControlName='tipo' (change)='onSelect()'>
+                        <option selected>Elegir.....</option>
                         <option value="admin">Admin</option>
                         <option value="paciente">Paciente</option>
                         <option value="profesional">Profesional</option>
                     </select>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Nombre:</span>
-                    </div>
-                    <input type="text" aria-label="Nombre" class="form-control" formControlName='nombre'>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Apellido:</span>
-                    </div>
-                    <input type="text" aria-label="Apellido" class="form-control" formControlName='apellido'>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Email:</span>
-                    </div>
-                    <input type="text" aria-label="Email" class="form-control" formControlName='email'>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Password:</span>
-                    </div>
-                    <input type="password" aria-label="Password" class="form-control" formControlName='password'>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Foto 1</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Foto 2</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile02"
-                            aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group" id="button-addon3">
-                        <div class="col-6">
-                            <button class="btn btn-primary btn-block" type="button" (click)='onRegistrar()'>Registrar</button>
+                <div class="input-group mb-3" [hidden]='!flagAdmin'>
+                    <span class="text-danger">Advertencia: Debe dar permiso como administrador para dar de alta este
+                        tipo de usuario</span>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Email:</span>
                         </div>
-                        <div class="col-6">
-                            <button class="btn btn-secondary btn-block" type="button" (click)='onLimpiar()'>Limpiar</button>
+                        <input type="text" aria-label="Email" class="form-control" formControlName='email'
+                            placeholder="ejemplo@ejemplo.com" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Contraseña:</span>
+                        </div>
+                        <input type="password" aria-label="Contraseña" class="form-control" formControlName='password'
+                            placeholder="Contraseña de mas de 6 digitos" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group" id="button-addon3">
+                            <div class="col-6">
+                                <button class="btn btn-primary btn-block" type="submit"
+                                    (click)='onAutorizar()'>Autorizar</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-secondary btn-block" type="button"
+                                    (click)='onLimpiar()'>Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div [hidden]='!flagForm'>
+                    <div class="input-group mb-3" [hidden]='!flagIsAdmin'>
+                        <span class="text-success">Autorizado. Puede registrar un nuevo administrador</span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Nombre:</span>
+                        </div>
+                        <input type="text" aria-label="Nombre" class="form-control" formControlName='nombre' required
+                            placeholder="Ingrese su nombre">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Apellido:</span>
+                        </div>
+                        <input type="text" aria-label="Apellido" class="form-control" formControlName='apellido'
+                            placeholder="Ingrese su apellido" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Email:</span>
+                        </div>
+                        <input type="text" aria-label="Email" class="form-control" formControlName='email'
+                            placeholder="ejemplo@ejemplo.com" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Contraseña:</span>
+                        </div>
+                        <input type="password" aria-label="Contraseña" class="form-control" formControlName='password'
+                            placeholder="Contraseña de mas de 6 digitos" required>
+                    </div>
+                    <div class="input-group mb-3" [hidden]='!flagProfesional'>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Profesiones:</span>
+                        </div>
+                        <input type="text" aria-label="Profesiones" class="form-control" formControlName='profesiones'
+                            placeholder="Ingresar profesiones separadas por comas ej: dentista,traumatologo">
+                    </div>
+                    <div class="input-group mb-3" [hidden]='!flagPaciente'>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Foto 1</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                aria-describedby="inputGroupFileAddon01" accept=".png , .jpg"
+                                (change)="onCharge($event,'1')">
+                            <label class="custom-file-label" for="inputGroupFile01">Selecciona tu foto..</label>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3" [hidden]='!flagPaciente'>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Foto 2</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile02"
+                                aria-describedby="inputGroupFileAddon01" accept=".png , .jpg"
+                                (change)="onCharge($event,'2')">
+                            <label class="custom-file-label" for="inputGroupFile01">Selecciona tu foto..</label>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group" id="button-addon3">
+                            <div class="col-6">
+                                <button class="btn btn-primary btn-block" type="submit"
+                                    (click)='onRegistrar()'>Registrar</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-secondary btn-block" type="button"
+                                    (click)='onLimpiar()'>Limpiar</button>
+                            </div>
                         </div>
                     </div>
                 </div>

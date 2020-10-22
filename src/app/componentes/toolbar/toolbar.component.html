@@ -26,12 +26,20 @@
           </div>
         </li> -->
       </ul>
-      <ul class="navbar-nav ml-md-auto">
+      <ul class="navbar-nav ml-md-auto" [hidden]='userIsLogged'>
         <li class="nav-item">
           <a href="#" routerLink='/Login' class="nav-link">Login</a>
         </li>
         <li class="nav-item">
           <a href="#" routerLink='/Registro' class="nav-link">Registro</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-md-auto" [hidden]='!userIsLogged'>
+        <li class="nav-item" *ngIf='user'>
+          <span class="nav-link"> {{user.email}}</span>
+        </li>
+        <li class="nav-item">
+          <a href="#" (click)='onLogout()'  class="nav-link">Logout</a>
         </li>
       </ul>
     </div>
