@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   }
   onPaciente() {
     this.formControl.setValue({
-      email: 'fede@noloce.com',
+      email: 'fedepcs@gmail.com',
       password: '123456'
     })
   }
