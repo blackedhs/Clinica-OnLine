@@ -1,0 +1,17 @@
+<h3 class="title text-center mt-3 mx-3 mb-3 pb-1 rounded">Administradores</h3>
+<table class="table table-bordered ml-3">
+    <thead>
+        <tr>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">APELLIDO</th>
+            <th scope="col">EMAIL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let administrador of administradores' (click)='onTr(administrador)'>
+            <td >{{administrador.nombre}}</td>
+            <td>{{administrador.apellido}}</td>
+            <td>{{administrador.email}}</td>
+        </tr>
+    </tbody>
+</table>

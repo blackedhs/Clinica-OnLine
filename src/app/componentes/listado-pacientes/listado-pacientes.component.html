@@ -1,0 +1,21 @@
+<h3 class="title text-center mt-3 mx-3 mb-3 pb-1 rounded">Pacientes</h3>
+<table class="table table-bordered ml-3 pr-3">
+    <thead>
+        <tr>
+            <th scope='col'>NOMBRE</th>
+            <th scope='col'>APELLIDO</th>
+            <th scope='col'>EMAIL</th>
+            <th scope='col'>FOTO 1</th>
+            <th scope='col'>FOTO 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let paciente of pacientes' (click)='onTr(paciente)'>
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.apellido}}</td>
+            <td>{{paciente.email}}</td>
+            <td><img [src]="paciente.foto1" alt="" class="imagenes mx-auto d-block"></td>
+            <td><img [src]="paciente.foto2" alt="" class="imagenes mx-auto d-block"></td>
+        </tr>
+    </tbody>
+</table>

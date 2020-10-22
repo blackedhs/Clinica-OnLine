@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-12">
+        <h3 class="title text-center mt-3 mx-3 pb-1 rounded">Listados</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <app-listado-profesionales [profesionales]='profesionales' (usuarioSel)='onEmit($event)'></app-listado-profesionales>
+        <app-listado-pacientes [pacientes]='pacientes'  (usuarioSel)='onEmit($event)'></app-listado-pacientes>
+        <app-listado-pendientes [pendientes]='pendientes' (usuarioSel)='onEmit($event)'></app-listado-pendientes>
+        <app-listado-administradores [administradores]='administradores' (usuarioSel)='onEmit($event)'></app-listado-administradores>
+    </div>
+    <div class="col-lg-6">
+        <app-detalle [usuario]='usuario'></app-detalle>
+    </div>
+</div>

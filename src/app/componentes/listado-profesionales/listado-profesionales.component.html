@@ -1,0 +1,26 @@
+
+        <h3 class="title text-center mt-3 mx-3 mb-3 pb-1 rounded">Profesionales
+        </h3>
+    
+    <!-- <div class="col-1">
+        <button ' class="masmenos btn-block title text-center mt-3 mb-3 rounded">{{masMenos}}</button>
+    </div> -->
+
+<table class="table table-bordered ml-3" [hidden]='expandir'>
+    <thead>
+        <tr>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">APELLIDO</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">PROFESIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let profesional of profesionales' (click)='onTr(profesional)'>
+            <td >{{profesional.nombre}}</td>
+            <td>{{profesional.apellido}}</td>
+            <td>{{profesional.email}}</td>
+            <td>{{profesional.profesiones}}</td>
+        </tr>
+    </tbody>
+</table>

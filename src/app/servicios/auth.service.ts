@@ -16,4 +16,10 @@ export class AuthService {
   logout(){
     return this.fauth.signOut();
   }
+  SendVerificationMail() {
+    return this.fauth.currentUser.then(user=> user.sendEmailVerification());
+  }
+  delete(){
+    
+  }
 }

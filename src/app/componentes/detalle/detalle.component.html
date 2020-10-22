@@ -1,0 +1,48 @@
+<div *ngIf='usuario'>
+    <h3 class="title text-center mt-3 mx-3 mb-3 pb-1 rounded">Detalle</h3>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row mb-3" *ngIf='usuario.tipo == "paciente"'>
+                <div class="col-6">
+                    <img [src]="usuario.foto1" alt="foto1" class="mx-auto d-block imagenes">
+                </div>
+                <div class="col-6">
+                    <img [src]="usuario.foto2" alt="foto2" class="mx-auto d-block imagenes">
+
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nombre:</span>
+                </div>
+                <input type="text" aria-label="Nombre" class="form-control" [(ngModel)]='usuario.nombre'>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Apellido:</span>
+                </div>
+                <input type="text" aria-label="Apellido" class="form-control" [(ngModel)]='usuario.apellido'>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Email:</span>
+                </div>
+                <input type="text" aria-label="Email" class="form-control" disabled [(ngModel)]='usuario.email'>
+            </div>
+            <div class="input-group mb-3" *ngIf='usuario.tipo == "profesional"'>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Profesiones:</span>
+                </div>
+                <input type="text" aria-label="Profesiones" class="form-control" [(ngModel)]='usuario.profesiones'>
+            </div>
+            <div class="btn-group d-flex" role="group">
+                <button class="btn btn-success" *ngIf='usuario.activo == false' (click)='onAutorizar()'>Autorizar</button>
+                <button class="btn btn-warning" (click)='onModificar()'>Modificar</button>
+                <button class="btn btn-danger" (click)='onBorrar()'>Borrar</button>
+                <button class="btn btn-secondary" (click)='onCancelar()'>Cancelar</button>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
