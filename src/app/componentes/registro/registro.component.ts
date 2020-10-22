@@ -121,6 +121,7 @@ export class RegistroComponent implements OnInit {
   onSelect() {
     if (this.formRegistro.value['tipo'] == 'admin') {
       this.flagAdmin = true;
+      this.flagForm = false;
       this.flagPaciente = false;
       this.flagProfesional = false;
     } else if (this.formRegistro.value['tipo'] == 'paciente') {
