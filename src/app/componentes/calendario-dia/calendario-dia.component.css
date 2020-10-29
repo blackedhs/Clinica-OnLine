@@ -1,0 +1,19 @@
+.title{
+    background-color: midnightblue;
+    color: bisque;
+    font-size: 1.7rem;
+    font-weight: bold;   
+}
+td:hover{
+    background-color: midnightblue;
+    color: bisque;
+    /* font-size: 1.7rem; */
+    font-weight: bold;
+}
+.td-select{
+    background-color: midnightblue;
+    color: bisque;
+    /* font-size: 1.7rem; */
+    font-weight: bold;
+
+}

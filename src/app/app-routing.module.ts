@@ -8,11 +8,13 @@ import { ListadosComponent } from './componentes/listados/listados.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { SistemadeturnosComponent } from './componentes/sistemadeturnos/sistemadeturnos.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
   { path: 'Registro', component: RegistroComponent },
   { path: 'Login', component: LoginComponent },
+  { path: 'sistemadeturnos', component: SistemadeturnosComponent},
   { path: 'listados', component: ListadosComponent
    ,children:[
      { path: 'pacientes', component: ListadoPacientesComponent},

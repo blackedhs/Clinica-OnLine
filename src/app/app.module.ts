@@ -22,6 +22,15 @@ import { ListadoProfesionalesComponent } from './componentes/listado-profesional
 import { ListadoAdministradoresComponent } from './componentes/listado-administradores/listado-administradores.component';
 import { ListadoPendientesComponent } from './componentes/listado-pendientes/listado-pendientes.component';
 import { DetalleComponent } from './componentes/detalle/detalle.component';
+import { SistemadeturnosComponent } from './componentes/sistemadeturnos/sistemadeturnos.component';
+import { CalendarioComponent } from './componentes/calendario/calendario.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarioDiaComponent } from './componentes/calendario-dia/calendario-dia.component';
+import { NombreDiasPipePipe } from './pipes/nombre-dias-pipe.pipe';
+import { HoraminutosPipePipe } from './pipes/horaminutos-pipe.pipe';
+import { EventsService } from './servicios/events.service';
+import { ConfirmarTurnoComponent } from './componentes/confirmar-turno/confirmar-turno.component';
+import { SelectProfComponent } from './componentes/select-prof/select-prof.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +44,14 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     ListadoProfesionalesComponent,
     ListadoAdministradoresComponent,
     ListadoPendientesComponent,
-    DetalleComponent
+    DetalleComponent,
+    SistemadeturnosComponent,
+    CalendarioComponent,
+    CalendarioDiaComponent,
+    NombreDiasPipePipe,
+    HoraminutosPipePipe,
+    ConfirmarTurnoComponent,
+    SelectProfComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +61,10 @@ import { DetalleComponent } from './componentes/detalle/detalle.component';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgbModule
   ],
-  providers: [AuthService, DataService, StorageService],
+  providers: [AuthService, DataService, StorageService, EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

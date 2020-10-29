@@ -1,0 +1,22 @@
+<h3 class="title rounded ml-2">Especialidad y profesional</h3>
+<div class="row mt-3">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="input-group mb-3 ">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Seleccione especialidad</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" (change)='onEspecialidad()' [(ngModel)]='especialidad'>
+                <option *ngFor='let esp of especialidades' [value]="esp" >{{esp}}</option>
+            </select>
+        </div>
+        <div class="input-group mb-3" >
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect02">Seleccione el profesional</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" [(ngModel)]='profesional' (change)='onProfesional()' [disabled]='!flagProf'>
+                <option *ngFor='let prof of profEspecialidad'>{{prof.nombre}} {{prof.apellido}}</option>
+            </select>
+        </div>
+    </div>
+</div>

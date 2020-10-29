@@ -1,0 +1,10 @@
+<div class="" *ngIf='dateInput'>
+    <h3 class="title rounded">{{dateInput | nombreDiasPipe}}  </h3>
+    <table class="table table-bordered p-2">
+        <tr *ngFor='let linea of tablaHorarios'>
+            <td *ngFor='let hora of linea' (click)='armoHorarios(hora)' [class]='hora.style'>
+                {{hora.horario | horaminutosPipe}}
+            </td>
+        </tr>
+    </table>
+</div>

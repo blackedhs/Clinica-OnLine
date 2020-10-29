@@ -1,0 +1,18 @@
+<div *ngIf='profesional'>
+    
+    <h3 class="title rounded"> Calendario</h3>
+    
+    <ngb-datepicker #dp [(ngModel)]="model" (ngModelChange)='onChange()' [navigation]="'arrow'" (minDate)='this.calendar.getToday()'></ngb-datepicker>
+    <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker> -->
+    
+    <hr/>
+    
+    <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Hoy</button>
+    <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">Este mes</button>
+    <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button> -->
+    
+    <hr/>
+    
+    <!-- <pre *ngIf='date'>Month: {{ date.month }}.{{ date.year }}</pre> -->
+    <!-- <pre>Model: {{ model | json }}</pre> -->
+</div>
